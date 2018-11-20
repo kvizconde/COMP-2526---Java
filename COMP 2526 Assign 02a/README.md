@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [BCIT - COMP 2526] [Kevin Vizconde] [Assignment 2 - Part A]
 
 ------------
@@ -43,9 +42,3 @@ Plants cannot move, however they can pollinate by seeding. Each plant can send a
 neighbouring empty cell only if there are at least 3 empty cells in that area and there are exactly
 4 other plants in the neighbouring cells.
 =======
-# BCIT - COMP 2526 Object-Oriented Programming with Java
-## Assignments
-
-Assignment 2a: Game of Life - Version 1
-
->>>>>>> 70bbb5749ea17362b5028d008ab7eddd893db042
