@@ -1,11 +1,11 @@
-[BCIT - COMP 2526] [Kevin Vizconde] [Assignment 2 - Part A]
+**[BCIT - COMP 2526] [Kevin Vizconde] [Assignment 2 - Part A]**
 
 ------------
 Description:
 ------------
 This program is called "Game Of Life". It simulates a world populated with Plants and Herbivores.
 Plants are represented with the colour Green
-and Herbivores are represented with the colour Yellow
+and Herbivores are represented with the colour Yellow.
 Herbivores must feed on plants throughout the game or they will go hungry and die.
 
 
