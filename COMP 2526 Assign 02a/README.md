@@ -12,16 +12,16 @@ Herbivores must feed on plants throughout the game or they will go hungry and di
 --------------
 Files/Classes:
 --------------
->RandomGenerator
->Cell
->GUI
->Herbivore
->LifeForm
->Main
->Movable
->Plant
->Seeds
->World
+- RandomGenerator
+- Cell
+- GUI
+- Herbivore
+- LifeForm
+- Main
+- Movable
+- Plant
+- Seeds
+- World
 
 
 ------------
@@ -41,4 +41,4 @@ If a Herbivore fails to eat a Plant before 5 turns, then they die and are remove
 Plants cannot move, however they can pollinate by seeding. Each plant can send a seed to a random
 neighbouring empty cell only if there are at least 3 empty cells in that area and there are exactly
 4 other plants in the neighbouring cells.
-=======
+
