@@ -1,2 +1,2 @@
-# BCIT
-## Assignments from COMP 2526 - Object-Oriented Programming with Java
+# BCIT - COMP 2526 Object-Oriented Programming with Java
+## Assignments
