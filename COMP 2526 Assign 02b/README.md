@@ -1,4 +1,4 @@
-[BCIT - COMP 2526] [Kevin Vizconde] [Assignment 2 - Part B]
+**[BCIT - COMP 2526] [Kevin Vizconde] [Assignment 2 - Part B]**
 
 ------------
 Description:
