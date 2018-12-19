@@ -1,39 +1,34 @@
 import java.util.ArrayList;
 
 /**
- * Herbivore.
+ * Omnivore.
  *
  * @author Kevin Vizconde
- * @version 2.0
+ * @version 1.0
  */
-public class Herbivore extends Movable implements LifeForm  {
+public class Omnivore extends Movable implements LifeForm {
     
     private final int SAME_GRP = 1;
     
-    private final int EMPTY_GRP = 2;
+    private final int EMPTY_GRP = 3;
     
-    private final int FOOD_GRP = 2;
+    private final int FOOD_GRP = 1;
 
     
     /**
-     * Sets the color code to Yellow.
-     *
-     * @return the color code
      * @see LifeForm#getColorCode()
+     * @return
      */
     public String getColorCode() {
-        return "#FFFF00";
+        return "#0085ff";
     }
     
-
-    /**
-     * Constructs an object of type Herbivore.
-     */
-    public Herbivore() {
+    
+    public Omnivore() {
         moved = false;
         hungry = 0;
     }
-    
+
 
     /**
      * @see Movable#resetMoved()
@@ -50,20 +45,21 @@ public class Herbivore extends Movable implements LifeForm  {
     public void moveMe(Cell target) {
         target.setLife(this);
     }
-    
-    
+
+
     /**
      * @see Movable#isEdible(LifeForm)
      * @param life
      * @return
      */
     public boolean isEdible(LifeForm life) {
-        return life instanceof Plant;
-    }
+        return (life instanceof Herbivore || life instanceof Carnivore 
+                || life instanceof Plant);
+        }
     
     
     /**
-     * Herbivore will give birth if all conditions
+     * Omnivore will give birth if all conditions
      * in this method are met.
      * 
      * @see Movable#giveBirth(Cell, java.util.ArrayList)
@@ -82,7 +78,7 @@ public class Herbivore extends Movable implements LifeForm  {
            if (life == null) {
                dest.add(cell);
                countEmpty++;
-           } else if (life instanceof Herbivore) {
+           } else if (life instanceof Omnivore) {
                countSame++;
            } else if (isEdible(life)) {
                countFood++;
@@ -90,8 +86,8 @@ public class Herbivore extends Movable implements LifeForm  {
         }
         if (countEmpty >= EMPTY_GRP && countSame >= SAME_GRP && countFood >= FOOD_GRP) {
             Cell dc = dest.get(RandomGenerator.nextNumber(dest.size() - 1));
-            dc.setLife(new Herbivore());
-        } 
+            dc.setLife(new Omnivore());
+        }
     }
 
 }

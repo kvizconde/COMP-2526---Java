@@ -1,20 +1,27 @@
+
 /**
  * World.
  * This class contains the functions and rules for the game
  *
  * @author Kevin Vizconde
- * @version 1.0
+ * @version 2.0
  */
 public class World {
     
     /** The Constant MAX_RANDOM. */
-    private static final int MAX_RANDOM = 100;
+    private static final int MAX_RANDOM = 99;
     
     /** The Constant HERB_VALUE. */
-    private static final int HERB_VALUE = 85;
+    private static final int HERB_VALUE = 80;
     
     /** The Constant PLANT_VALUE. */
-    private static final int PLANT_VALUE = 65;
+    private static final int PLANT_VALUE = 60;
+    
+    /** The Constant CARN_VALUE. */
+    private static final int CARN_VALUE = 50;
+    
+    /** The Constant OMNI_VALUE. */
+    private static final int OMNI_VALUE = 45;
     
     /** The width. */
     private final int width;
@@ -48,16 +55,26 @@ public class World {
     private void initCells() {
         for(int i = 0; i < width; i++) {
             for(int j = 0; j < height; j++) {
+                
                 cells[i][j] = new Cell(this,i,j);
                 
-                int n = RandomGenerator.nextNumber(MAX_RANDOM);
+                int val = RandomGenerator.nextNumber(MAX_RANDOM);
                 
-                // Populates the world with the following conditions
-                if(n >= HERB_VALUE ) {
+                if(val >= HERB_VALUE)
+                {
                     cells[i][j].setLife(new Herbivore());
                 }
-                else if(n >= PLANT_VALUE) {
+                else if(val >= PLANT_VALUE)
+                {
                     cells[i][j].setLife(new Plant());
+                }
+                else if(val >= CARN_VALUE)
+                {
+                    cells[i][j].setLife(new Carnivore());
+                }
+                else if(val >= OMNI_VALUE)
+                {
+                    cells[i][j].setLife(new Omnivore());
                 }
                 
             }
@@ -95,6 +112,14 @@ public class World {
             }
         }
         }
+        for(int i = 0; i < width; i++) {
+            for(int j = 0; j < height; j++) {
+                LifeForm l = cells[i][j].getLife();
+                if(l != null && l instanceof Movable && !((Movable)l).isNewBorn()) {
+                    ((Movable)l).giveBirth(cells[i][j], cells[i][j].getNeighbours());
+                }
+            }
+        }
 
     }
 
@@ -118,17 +143,7 @@ public class World {
         return height;
     }
 
-
-    /**
-     * Gets the cells.
-     *
-     * @return the cells
-     */
-    public Cell[][] getCells() {
-        return cells;
-    }
-
-
+    
     /**
      * Sets the cells.
      *
@@ -136,6 +151,16 @@ public class World {
      */
     public void setCells(Cell[][] cells) {
         this.cells = cells;
+    }
+
+    
+    /**
+     * Gets the cells.
+     *
+     * @return the cells
+     */
+    public Cell[][] getCells() {
+        return cells;
     }
     
     

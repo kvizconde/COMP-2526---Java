@@ -3,7 +3,6 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
@@ -15,7 +14,7 @@ import javafx.stage.Stage;
  * and displays the world.
  *
  * @author Kevin Vizconde
- * @version 1.0
+ * @version 2.0
  */
 public class GUI extends Application {
     
@@ -30,11 +29,12 @@ public class GUI extends Application {
         world = new World (50, 50);
         circles = new Circle[50][50];
     }
-
+    
 
     public void start(Stage stage) {
         
         GridPane root = new GridPane();
+        
         
         for(int i = 0; i < world.getWidth(); i++) {
             for(int j = 0; j < world.getHeight(); j++) {
@@ -55,8 +55,8 @@ public class GUI extends Application {
             
         }
         
-        
         Scene scene = new Scene(root, 500, 500, Color.WHITE);
+        
         
         scene.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
