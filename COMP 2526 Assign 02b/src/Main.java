@@ -3,7 +3,7 @@
  * Launches the application.
  *
  * @author Kevin Vizconde
- * @version 1.0
+ * @version 2.0
  */
 public class Main extends GUI {
 

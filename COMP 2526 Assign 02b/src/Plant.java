@@ -4,12 +4,12 @@ import java.util.ArrayList;
  * Plant.
  *
  * @author Kevin Vizconde
- * @version 1.0
+ * @version 2.0
  */
 public class Plant implements LifeForm, Seeds {
     
     /** The number of plants needed to seed. */
-    private final int PGROUP = 4;
+    private final int PGROUP = 2;
     
     /** The number of empty cells needed. */
     private final int EMPTY_GRP = 3;
@@ -19,7 +19,6 @@ public class Plant implements LifeForm, Seeds {
     
     /** The empty count. */
     private int emptyCount;
-    
     
     
     /**
@@ -71,7 +70,7 @@ public class Plant implements LifeForm, Seeds {
         }
             
         }
-        if (plantCount == PGROUP && emptyCount >= EMPTY_GRP) {
+        if (plantCount >= PGROUP && emptyCount >= EMPTY_GRP) {
             int index = RandomGenerator.nextNumber(emptyCells.size());
             Cell target = emptyCells.get(index);
             Plant p = new Plant();

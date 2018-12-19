@@ -67,6 +67,7 @@ public class Cell {
                 Movable m = (Movable)life;
                 m.move(this, getNeighbours());
             }
+            
             if(life instanceof Seeds) {
                 Seeds s = (Seeds)life;
                 s.seed(this, getNeighbours());
@@ -80,7 +81,7 @@ public class Cell {
      *
      * @return the neighbours
      */
-    private ArrayList<Cell> getNeighbours() {
+    public ArrayList<Cell> getNeighbours() {
         ArrayList<Cell> neighbours = new ArrayList<Cell>();
         for(int i = -1; i < 2; i++)
             for(int j = -1; j < 2; j++)
